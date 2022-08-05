@@ -15,14 +15,14 @@ import io.vertx.sqlclient.Pool;
 import io.vertx.sqlclient.PoolOptions;
 import io.vertx.sqlclient.Row;
 import io.vertx.sqlclient.RowSet;
-
-
+import io.vertx.ext.web.handler.CorsHandler;
 
 public class MainVerticle extends AbstractVerticle {
 
 
   @Override
   public void start() {
+    
     MySQLConnectOptions options = new MySQLConnectOptions()
       .setPort(3306)
       .setHost("localhost")
@@ -37,6 +37,17 @@ public class MainVerticle extends AbstractVerticle {
 
     //create router to use for routes
     Router router = Router.router(vertx);
+
+    //fix cors browser issue
+    router.route().handler(CorsHandler.create("*")
+      .allowedMethod(io.vertx.core.http.HttpMethod.GET)
+      .allowedMethod(io.vertx.core.http.HttpMethod.POST)
+      .allowedMethod(io.vertx.core.http.HttpMethod.OPTIONS)
+      .allowedHeader("Access-Control-Request-Method")
+      .allowedHeader("Access-Control-Allow-Credentials")
+      .allowedHeader("Access-Control-Allow-Origin")
+      .allowedHeader("Access-Control-Allow-Headers")
+      .allowedHeader("Content-Type"));
 
 
     //simple get route for the static route /
@@ -75,7 +86,7 @@ public class MainVerticle extends AbstractVerticle {
   }
 
 
-  //create a readingList using the Todo class
+  //create a Task using the Todo class
   private void createSomeData(Pool pool) {
     Todo task1 = new Todo("Take out the trash");
 
@@ -88,7 +99,7 @@ public class MainVerticle extends AbstractVerticle {
           .execute()
       );
   }
-  //this shows all the values of the readingList in JSON format *READ*
+  //this shows all the values of the tasks in JSON format *READ*
   private Handler<RoutingContext> getAll(Pool pool){
     return routingContext -> {
       JsonArray jsonArray = new JsonArray();
@@ -114,7 +125,7 @@ public class MainVerticle extends AbstractVerticle {
         });
     };
   }
-  //this adds a task to the readingList *CREATE*
+  //this adds a task to the list *CREATE*
   private Handler<RoutingContext> addOne(Pool pool){
     return routingContext -> {
       //create JSONObject from request body
@@ -136,7 +147,7 @@ public class MainVerticle extends AbstractVerticle {
         });
     };
   }
-  //this deletes an article from the readingList *DELETE*
+  //this deletes a task from the list *DELETE*
   private Handler<RoutingContext> deleteOne(Pool pool) {
     return routingContext -> {
       //get id from parameters of request
@@ -165,7 +176,7 @@ public class MainVerticle extends AbstractVerticle {
       }
     };
   }
-  //  //this gets an article by a specific id passed in
+  //  //this gets a task by a specific id passed in
   private Handler<RoutingContext> getOne(Pool pool) {
     return routingContext -> {
       String id = routingContext.request().getParam("id");
