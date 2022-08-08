@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "../components/card/Card";
 
-function Tasks() {
+function TaskList() {
     const [tasks, setTasks] = useState([]);
   
     const getData = async () => {
@@ -18,19 +18,18 @@ function Tasks() {
       getData();
     }, []);
 
-    return (
+
+   return (
         <>
-        <h1 className="welcome">Todo App</h1>
-        <div className="container">
+            <div>
             {tasks.length > 0
               ? tasks.map((task) => (
               <Card key={task.id} task={task} />
               ))
               : 'Loading'}
-          </div>
+            </div>
         </>
-          
-      );
+   )
 }
 
-export default Tasks;
+export default TaskList;

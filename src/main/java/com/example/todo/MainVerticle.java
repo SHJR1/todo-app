@@ -88,8 +88,8 @@ public class MainVerticle extends AbstractVerticle {
 
   //create a Task using the Todo class
   private void createSomeData(Pool pool) {
-    Todo task1 = new Todo("Take out the trash");
-
+    Todo task1 = new Todo("Apples");
+    
     pool
       .query("CREATE TABLE if not exists tasks(id int NOT NULL AUTO_INCREMENT,task varchar(255), PRIMARY KEY(id))")
       .execute()
