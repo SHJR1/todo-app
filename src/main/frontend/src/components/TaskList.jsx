@@ -26,7 +26,7 @@ function TaskList() {
               ? tasks.map((task) => (
               <Card key={task.id} task={task} />
               ))
-              : 'Loading'}
+              : ''}
             </div>
         </>
    )

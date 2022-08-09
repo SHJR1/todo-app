@@ -6,17 +6,6 @@ import Navbar from './components/navbar/Navbar';
 
 
 function App() {
-  // let Component;
-  // switch(window.location.pathname){
-  //   case "/":
-  //     Component = Landing;
-  //     break;
-  //   case "/list":
-  //     Component = List;
-  //     break;
-    
-  // }
-
   return (
     <Router>
       <Navbar/>
