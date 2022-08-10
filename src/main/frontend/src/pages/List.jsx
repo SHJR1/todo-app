@@ -1,13 +1,15 @@
 import React from "react";
 import TaskList from '../components/TaskList';
 import CreateTask from '../components/CreateTask';
+import { useState } from "react";
 
-function Tasks() {
+function Tasks(props) {
+	const [newListItem, setNewListItem] = useState("");
 
 	return (
     	<>
-        	<CreateTask/>
-        	<TaskList/>
+        	<CreateTask listTitle={props.listTitle}/>
+        	<TaskList newListItem={newListItem} setNewListItem={setNewListItem}/>
         </>
     );
 }

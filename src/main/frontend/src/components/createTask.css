@@ -1,0 +1,22 @@
+.form-button {
+    cursor: pointer;
+    border-radius: 6px;
+    background: 0 0;
+    font-size: 16px;
+    height: 36px;
+    border: 1px solid #1d1c1d4d;  
+}
+
+.form-button:hover {
+    background-color: #1d1c1d4d;
+}
+
+input {
+    padding: 7px;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #fbfbfb;
+    border: 2px solid transparent;
+    height: 36px;
+    box-shadow: 0 0 0 1px #dddddd, 0 2px 4px 0 rgb(0 0 0 / 7%), 0 1px 1.5px 0 rgb(0 0 0 / 5%);
+}

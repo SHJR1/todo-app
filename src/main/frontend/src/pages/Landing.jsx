@@ -1,9 +1,9 @@
 import LandingCard from "../components/landing-card/Landing-card.jsx";
 
-function Landing(){
+function Landing(props){
 
     return (
-        <LandingCard/>
+        <LandingCard listTitle={props.listTitle} setListTitle={props.setListTitle}/>
       )
 }
 

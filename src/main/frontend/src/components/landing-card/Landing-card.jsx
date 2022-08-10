@@ -1,16 +1,21 @@
-import React, { useState } from "react";
-import './landing-card.css'
+import './landing-card.css';
+import { useNavigate } from "react-router-dom";
 
-function LandingCard(){
-    const [title, setTitle] = useState("");
+function LandingCard(props){
+    const navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("submit");
+        navigate("/list");
+    }
 
     return (
             <div className="landing-card">
                 <h2>Enter List Title:</h2>
-                <form>
-                    <h3><span>{title}</span></h3>
-                    <input className="inputText" type="text" placeholder='Enter title' value={title} onChange={(event) => setTitle(event.target.value)} required/>
-                    <button className="button"><a href='/list'>Create List</a></button>
+                <form onSubmit={handleSubmit}>
+                    <input className="inputText" type="text" placeholder='Title' value={props.listTitle} onChange={(event) => props.setListTitle(event.target.value)} required/>
+                    <button className="button">Create List</button>
                 </form>
             </div>
       )

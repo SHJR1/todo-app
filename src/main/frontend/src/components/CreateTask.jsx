@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import "./createTask.css";
 
-function CreateTask() {
+function CreateTask(props) {
     const navigate = useNavigate();
 
     const [task, setTask] = useState('');
@@ -21,7 +22,7 @@ function CreateTask() {
       
             console.log('Task Created!', data);
       
-            navigate(`/tasks/${data.createdTask.id}`)
+            navigate(`/tasks/${data.id}`)
             console.log('Task successfully created!');
       
       
@@ -45,10 +46,10 @@ function CreateTask() {
       
     return (
         <>
-            <h1>List Title</h1>
+            <h1>{props.listTitle}</h1>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder='Add Task' value={task} onChange={(event) => setTask(event.target.value)} required/>
-                <button className='form-button'>Create Task</button>
+                <input type="text" placeholder='Add List Item' value={task} onChange={(event) => setTask(event.target.value)} required/>
+                <button className='form-button'>Add Item</button>
             </form>
             <h3>{task}</h3>
         </>  
