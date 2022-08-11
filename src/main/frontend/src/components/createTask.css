@@ -1,3 +1,22 @@
+
+
+.createTaskContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.createTaskContainer h2 {
+    text-decoration: underline;
+    font-size: 35px;
+}
+
+form {
+    display: flex;
+    margin-top: 0;
+}
+
 .form-button {
     cursor: pointer;
     border-radius: 6px;
@@ -6,10 +25,11 @@
     height: 36px;
     border: 1px solid #1d1c1d4d;  
     margin-left: 5px;
+    background-color: #B7D1DA;
 }
 
 .form-button:hover {
-    background-color: #1d1c1d4d;
+    background-color: #adb5bd;
 }
 
 input {

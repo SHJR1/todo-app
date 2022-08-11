@@ -48,3 +48,7 @@ a {
 #dark {
   background-color: #003049;
 } 
+
+* {
+  font-family: 'Mali', cursive;
+}

@@ -17,7 +17,6 @@ body {
 }
 
 .inputText {
-
     padding: 7px;
     border-radius: 6px;
     font-size: 16px;
@@ -38,12 +37,8 @@ body {
     margin-left: 5px;
 }
 
-.button a {
-    color: #416788;
-}
-
 .button:hover {
-    background-color: #1d1c1d4d;
+    background-color: #adb5bd;
 }
 
 @media screen and (max-width: 720px) {

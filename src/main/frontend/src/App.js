@@ -4,6 +4,7 @@ import List from './pages/List';
 import Landing from './pages/Landing';
 import Navbar from './components/navbar/Navbar';
 import { createContext, useState } from "react";
+import UpdateItem from './pages/UpdateItem';
 export const ThemeContext = createContext(null);
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Landing listTitle={listTitle} setListTitle={setListTitle}/>} />
           <Route path='/list' element={<List listTitle={listTitle}/>} />
+          <Route path='/item/:id' element={<UpdateItem/>} />
         </Routes>
       </main>
       </ThemeContext.Provider>

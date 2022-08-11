@@ -1,37 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import "./createTask.css";
 
 function CreateTask(props) {
-    const navigate = useNavigate();
 
     const [task, setTask] = useState('');
-
-    const createTask = async (newTask) => {
-        try {
-            const response = await fetch('http://localhost:8888/api/tasks', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'SameSite': 'None'
-                },
-                body: JSON.stringify(newTask)
-            });
-      
-            const data = await response.json();
-      
-            console.log('Task Created!', data);
-      
-            navigate(`/tasks/${data.id}`)
-            console.log('Task successfully created!');
-      
-      
-        } catch (error) {
-            console.log(error.message);
-            console.log(`Task did not update - error: ${error.message}`)
-        }
-      
-      }
       
       const handleSubmit = (event) => {
         event.preventDefault();
@@ -39,19 +12,21 @@ function CreateTask(props) {
         const newTask = {
             task
         }
-        createTask(newTask);
+        props.createTask(newTask);
         
         setTask('');
       }
-      
+    
     return (
         <>
-            <h1>{props.listTitle}</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder='Add List Item' value={task} onChange={(event) => setTask(event.target.value)} required/>
-                <button className='form-button'>Add Item</button>
-            </form>
-            <h3>{task}</h3>
+            <div className="createTaskContainer">
+                <h2>{props.listTitle}</h2>
+            
+                <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder='Add List Item' value={task} onChange={(event) => setTask(event.target.value)} required/>
+                    <button className='form-button'>Add Item</button>
+                </form>
+            </div>
         </>  
     );
 }

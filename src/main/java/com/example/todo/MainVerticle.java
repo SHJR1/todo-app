@@ -66,6 +66,8 @@ public class MainVerticle extends AbstractVerticle {
     router.post("/api/tasks").handler(addOne(pool));
     //the path passes through the id of the tasks we want to delete and calls deleteOne method
     router.delete("/api/tasks/:id").handler(deleteOne(pool));
+    //Deletes all from the database
+    router.delete("/api/tasks").handler(deleteAll(pool));
     //route passes a tasks by id and access it
     router.get("/api/tasks/:id").handler(getOne(pool));
     //route passes a tasks by ID to update
@@ -176,6 +178,27 @@ public class MainVerticle extends AbstractVerticle {
       }
     };
   }
+
+  private Handler<RoutingContext> deleteAll(Pool pool){
+    return routingContext -> {
+      pool
+        .query("DELETE FROM tasks")
+        .execute(ar -> {
+          if(ar.succeeded()) {
+            routingContext
+                .response()
+                .setStatusCode(200)
+                .end();
+          } else {
+            routingContext
+              .response()
+              .setStatusCode(400)
+              .end(ar.cause().getMessage());
+          }
+        });
+    };
+  }
+
   //  //this gets a task by a specific id passed in
   private Handler<RoutingContext> getOne(Pool pool) {
     return routingContext -> {

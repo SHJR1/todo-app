@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@300;700&display=swap');
+
+
+
+
+/* .parent-container {
+    background-color: #118ab2;
+    height:100%;
+} */
+
 .container {
     display: flex;
     justify-content:space-around;
@@ -6,7 +16,7 @@
 .form {
     display: flex;
     justify-content: center;
-    margin: 1em 0;
+    margin-bottom: 2em;
 }
 
 .header {
@@ -17,21 +27,49 @@
     display: flex;
     justify-content: space-between;
     width: 50vh;
-    background-color: red;
     padding: 0 .5em;
     margin: .2em 0;
     border-radius: .5em;
+    border: 1px solid black;
+    background-color: #B7D1DA;
+}
+
+.card h3 {
+    font-family: 'Mali', cursive;
 }
 
 .buttons {
-    /* background-color: blue; */
     display: flex;
     justify-content:center;
+    align-items: center;
 }
 
-.buttonOne {
-    background-color: grey;
-    margin-right: 1em;
+
+
+.buttons button {
+    cursor: pointer;
+    /* border-radius: 6px; */
+    
+    /* background: 0 0; */
+    font-size: 16px;
+    height: 50%;
+    border:1px solid black; 
+    border-radius: 6px;
+    margin-left: .5em;
+    width: 4em;
+    color: #caf0f8;
+}
+
+.buttons button:hover {
+    background-color: #1d1c1d4d;
+}
+
+.editButton {
+    background-color: #5fa8d3;
+}
+
+.deleteButton {
+    background-color: #ce4257;
 }
 
 @media screen and (max-width: 720px) {
