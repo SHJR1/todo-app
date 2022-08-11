@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Card from "../components/card/Card";
+import Card from "./Card";
+import "../style/taskList.css";
 
-function TaskList() {
+function TaskList(props) {
     const [tasks, setTasks] = useState([]);
   
     const getData = async () => {
@@ -21,6 +22,7 @@ function TaskList() {
 
    return (
         <>
+            <h1 className="header">To do:</h1>
             <div>
             {tasks.length > 0
               ? tasks.map((task) => (

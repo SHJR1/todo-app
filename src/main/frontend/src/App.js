@@ -3,21 +3,28 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import List from './pages/List';
 import Landing from './pages/Landing';
 import Navbar from './components/navbar/Navbar';
-import { useState } from "react";
-
+import { createContext, useState } from "react";
+export const ThemeContext = createContext(null);
 
 function App() {
   const [listTitle, setListTitle] = useState("");
+  const [theme, setTheme] = useState('light');
+
+  // const toggleTheme = () => {
+  //   setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
+  // }
 
   return (
     <Router>
-      <Navbar/>
+      <ThemeContext.Provider theme={theme} value={{theme, setTheme}}>
       <main>
+        <Navbar/>
         <Routes>
           <Route path='/' element={<Landing listTitle={listTitle} setListTitle={setListTitle}/>} />
           <Route path='/list' element={<List listTitle={listTitle}/>} />
         </Routes>
       </main>
+      </ThemeContext.Provider>
     </Router>
   );
 }

@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    justify-content:space-around;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    margin: 1em 0;
+}
+
+.header {
+    text-decoration: underline;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    width: 50vh;
+    background-color: red;
+    padding: 0 .5em;
+    margin: .2em 0;
+    border-radius: .5em;
+}
+
+.buttons {
+    /* background-color: blue; */
+    display: flex;
+    justify-content:center;
+}
+
+.buttonOne {
+    background-color: grey;
+    margin-right: 1em;
+}
+
+@media screen and (max-width: 720px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 40vh;
+    }
+
+}

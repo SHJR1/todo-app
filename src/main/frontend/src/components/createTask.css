@@ -5,6 +5,7 @@
     font-size: 16px;
     height: 36px;
     border: 1px solid #1d1c1d4d;  
+    margin-left: 5px;
 }
 
 .form-button:hover {
