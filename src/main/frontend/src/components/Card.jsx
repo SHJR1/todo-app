@@ -2,7 +2,7 @@ import "../style/taskList.css";
 import { useNavigate } from 'react-router-dom';
 
 
-function Card({ task }) {
+function Card({ task, getData }) {
   const navigate = useNavigate();
 
   let itemId = task.id;
@@ -19,7 +19,7 @@ function Card({ task }) {
         }
       });
 
-      
+      getData();
 
       } catch (error) {
         console.log(error.message);

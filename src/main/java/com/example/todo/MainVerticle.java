@@ -238,7 +238,7 @@ public class MainVerticle extends AbstractVerticle {
       try {
         Integer idAsInteger = Integer.valueOf(id);
         pool
-          .query("UPDATE tasks SET task='"+task+"'")
+          .query("UPDATE tasks SET task='"+task+"' WHERE id="+idAsInteger+"")
           .execute(ar -> {
             if (ar.succeeded()){
               routingContext

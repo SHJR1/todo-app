@@ -24,7 +24,7 @@ function CreateTask(props) {
             
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder='Add List Item' value={task} onChange={(event) => setTask(event.target.value)} required/>
-                    <button className='form-button'>Add Item</button>
+                    <button className='form-button'>Add</button>
                 </form>
             </div>
         </>  

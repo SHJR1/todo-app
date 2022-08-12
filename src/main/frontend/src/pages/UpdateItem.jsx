@@ -9,7 +9,6 @@ function UpdateItem() {
   return (
 
     <div className='container' style={{flexDirection: 'column'}}>
-      <h1>Update/Edit Item:</h1>
       <EditItem itemId={id}/>
     </div>
 

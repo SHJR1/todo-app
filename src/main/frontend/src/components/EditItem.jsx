@@ -21,6 +21,7 @@ function EditItem({itemId}) {
     }
 
     const editTask = async (itemId, updatedTask) => {
+        console.log("Item ID: ", itemId);
         try {
             await fetch(`http://localhost:8888/api/tasks/${itemId}`, {
                 method: 'PUT',
@@ -59,7 +60,7 @@ function EditItem({itemId}) {
 
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder='Enter item' value={task} onChange={(event) => setTask(event.target.value)} required/>
-                <button className='form-button'>Update Product</button>
+                <button className='form-button'>Update Item</button>
             </form>
 
         </div>

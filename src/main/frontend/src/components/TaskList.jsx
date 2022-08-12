@@ -8,7 +8,7 @@ function TaskList(props) {
             <div>
             {props.tasks.length > 0
               ? props.tasks.map((task) => (
-              <Card key={task.id} task={task} />
+              <Card key={task.id} task={task} getData={props.getData}/>
               ))
               : ''}
             </div>
