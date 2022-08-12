@@ -26,7 +26,7 @@ function Navbar() {
 
     return (
         <nav className="nav">
-            <a href="/" className="site-title">Todo List</a>
+            <a onClick={() => deleteAll()} href="/" className="site-title">Todo List</a>
             <ul>
                 <li>
                     <button onClick={() => deleteAll()}>New List</button>
